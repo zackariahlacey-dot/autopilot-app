@@ -133,18 +133,18 @@ export default function ExplorePage() {
 
   if (loading) {
     return (
-      <div className="h-screen bg-zinc-950 flex items-center justify-center">
-        <div className="animate-pulse text-zinc-400">Loading businesses...</div>
+      <div className="h-screen bg-tesla-black flex items-center justify-center">
+        <div className="loading-spinner w-12 h-12"></div>
       </div>
     );
   }
 
   return (
-    <div className="h-screen bg-zinc-950 text-white relative overflow-hidden flex">
+    <div className="h-screen bg-tesla-black text-white relative overflow-hidden flex page-transition">
       {/* Business List Sidebar */}
-      <div className="w-96 h-full bg-zinc-950/95 backdrop-blur-xl border-r border-zinc-800 overflow-y-auto z-[999] shadow-2xl">
+      <div className="w-96 h-full glass-nav border-r border-white/10 overflow-y-auto z-[999] shadow-2xl">
         <div className="p-6 space-y-4">
-          <div className="sticky top-0 bg-zinc-950/95 backdrop-blur-xl pb-4 -mt-6 pt-6 -mx-6 px-6 border-b border-zinc-800/50">
+          <div className="sticky top-0 glass-nav pb-4 -mt-6 pt-6 -mx-6 px-6 border-b border-white/10">
             <h2 className="text-xl font-bold text-white mb-1">Nearby Businesses</h2>
             <p className="text-sm text-zinc-400">
               {filteredBusinesses.filter(b => b.is_verified).length} verified • {filteredBusinesses.filter(b => !b.is_verified).length} unclaimed
@@ -161,10 +161,10 @@ export default function ExplorePage() {
               <Link
                 key={business.id}
                 href={business.is_verified ? `/shop/${business.id}` : `/business/claim?business_id=${business.id}&name=${encodeURIComponent(business.name)}`}
-                className={`block p-4 rounded-xl border-2 transition-all hover:scale-[1.02] ${
+                className={`block p-4 rounded-xl border transition-all glass-card-hover tap-feedback ${
                   business.is_verified
-                    ? 'bg-gradient-to-br from-cyan-950/30 to-emerald-950/30 border-cyan-500/50 shadow-lg shadow-cyan-500/10 hover:border-cyan-400 hover:shadow-cyan-500/20'
-                    : 'bg-zinc-900/50 border-zinc-700 hover:border-zinc-600'
+                    ? 'bg-electric-blue/10 border-electric-blue/50 shadow-lg shadow-electric-blue/10'
+                    : 'border-white/10'
                 }`}
               >
                 <div className="flex items-start justify-between gap-3 mb-2">
@@ -183,8 +183,8 @@ export default function ExplorePage() {
                     </div>
                     <div className={`inline-block px-2 py-0.5 rounded text-xs font-medium uppercase tracking-wider ${
                       business.is_verified 
-                        ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30' 
-                        : 'bg-zinc-800 text-zinc-500 border border-zinc-700'
+                        ? 'bg-electric-blue/20 text-electric-blue border border-electric-blue/30' 
+                        : 'bg-white/5 text-zinc-500 border border-white/10'
                     }`}>
                       {business.category.replace('_', ' ')}
                     </div>
@@ -233,7 +233,7 @@ export default function ExplorePage() {
             </div>
             <Link
               href="/dashboard"
-              className="px-4 py-2 rounded-xl bg-zinc-900/80 backdrop-blur-md border border-zinc-700 text-zinc-300 hover:bg-zinc-800/80 transition-colors shadow-lg"
+              className="px-4 py-2 rounded-xl glass-card border-white/10 text-white hover:bg-white/10 transition-colors shadow-lg tap-feedback"
             >
               My Garage
             </Link>
@@ -251,12 +251,12 @@ export default function ExplorePage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search for 'Oil Change', 'Tire Shop', 'Brake Service'..."
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-zinc-900/90 backdrop-blur-md border border-zinc-700 text-white placeholder-zinc-400 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition shadow-lg"
+              className="w-full pl-12 pr-4 py-3 rounded-xl glass-card border-white/10 text-white placeholder-zinc-400 focus:border-electric-blue/50 focus:ring-2 focus:ring-electric-blue/20 outline-none transition shadow-lg"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white transition-colors"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white transition-colors tap-feedback"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

@@ -134,25 +134,25 @@ async function DashboardContent() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {vehicles.map((vehicle) => (
-                <Link
-                  key={vehicle.id}
-                  href={`/garage/${vehicle.id}`}
-                  className="block rounded-2xl border-2 border-zinc-800 bg-gradient-to-br from-zinc-900/80 to-zinc-900/40 backdrop-blur-xl p-6 hover:border-emerald-500/50 hover:scale-105 transition-all group relative overflow-hidden"
-                >
+              <Link
+                key={vehicle.id}
+                href={`/garage/${vehicle.id}`}
+                className="block rounded-2xl glass-card glass-card-hover border-white/10 p-6 transition-all group relative overflow-hidden tap-feedback"
+              >
                   {/* Animated glow effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/0 to-cyan-500/0 group-hover:from-emerald-500/10 group-hover:to-cyan-500/10 transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/0 to-electric-cyan/0 group-hover:from-electric-blue/10 group-hover:to-electric-cyan/10 transition-all duration-500"></div>
                   
                   <div className="relative z-10 space-y-4">
                     {/* Car Icon */}
-                    <div className="w-14 h-14 rounded-full bg-emerald-500/20 flex items-center justify-center group-hover:bg-emerald-500/30 transition-all">
-                      <svg className="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div className="w-14 h-14 rounded-full bg-electric-blue/20 flex items-center justify-center group-hover:bg-electric-blue/30 transition-all">
+                      <svg className="w-7 h-7 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                       </svg>
                     </div>
 
                     {/* Vehicle Info */}
                     <div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors mb-1">
+                      <h3 className="text-xl font-bold text-white group-hover:text-electric-blue transition-colors mb-1">
                         {vehicle.make} {vehicle.model}
                       </h3>
                       <p className="text-zinc-500 text-sm">{vehicle.year}</p>
@@ -161,7 +161,7 @@ async function DashboardContent() {
                     {/* Quick Stats */}
                     <div className="flex items-center gap-3 pt-2 border-t border-zinc-800">
                       <div className="flex items-center gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                        <div className="w-2 h-2 rounded-full bg-electric-blue animate-pulse"></div>
                         <span className="text-xs text-zinc-500">Healthy</span>
                       </div>
                       <span className="text-zinc-700">•</span>
@@ -170,17 +170,17 @@ async function DashboardContent() {
                   </div>
 
                   {/* Hover Arrow */}
-                  <svg className="absolute bottom-4 right-4 w-6 h-6 text-zinc-700 group-hover:text-emerald-400 transition-all group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="absolute bottom-4 right-4 w-6 h-6 text-zinc-700 group-hover:text-electric-blue transition-all group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
               ))}
 
               {/* Add Another Vehicle Card */}
-              <div className="rounded-2xl border-2 border-dashed border-zinc-700 bg-zinc-900/20 backdrop-blur-xl p-6 hover:border-emerald-500/50 hover:bg-zinc-900/40 transition-all group cursor-pointer">
+              <div className="rounded-2xl border-2 border-dashed border-white/10 glass-card p-6 hover:border-electric-blue/50 hover:bg-white/10 transition-all group cursor-pointer tap-feedback">
                 <form action={addVehicleAction} className="h-full flex flex-col justify-center space-y-4">
-                  <div className="w-14 h-14 rounded-full bg-emerald-500/10 flex items-center justify-center group-hover:bg-emerald-500/20 transition-all mx-auto">
-                    <svg className="w-7 h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-14 h-14 rounded-full bg-electric-blue/10 flex items-center justify-center group-hover:bg-electric-blue/20 transition-all mx-auto">
+                    <svg className="w-7 h-7 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                     </svg>
                   </div>
@@ -194,14 +194,14 @@ async function DashboardContent() {
                       name="make"
                       placeholder="Make"
                       required
-                      className="w-full px-3 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-white text-sm placeholder-zinc-500 focus:border-emerald-500 outline-none transition"
+                      className="w-full px-3 py-2 rounded-lg glass-card border-white/10 text-white text-sm placeholder-zinc-500 focus:border-electric-blue/50 outline-none transition"
                     />
                     <input
                       type="text"
                       name="model"
                       placeholder="Model"
                       required
-                      className="w-full px-3 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-white text-sm placeholder-zinc-500 focus:border-emerald-500 outline-none transition"
+                      className="w-full px-3 py-2 rounded-lg glass-card border-white/10 text-white text-sm placeholder-zinc-500 focus:border-electric-blue/50 outline-none transition"
                     />
                     <input
                       type="number"
@@ -210,11 +210,11 @@ async function DashboardContent() {
                       required
                       min="1900"
                       max="2099"
-                      className="w-full px-3 py-2 rounded-lg bg-zinc-800 border border-zinc-700 text-white text-sm placeholder-zinc-500 focus:border-emerald-500 outline-none transition"
+                      className="w-full px-3 py-2 rounded-lg glass-card border-white/10 text-white text-sm placeholder-zinc-500 focus:border-electric-blue/50 outline-none transition"
                     />
                     <button
                       type="submit"
-                      className="w-full py-2 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 font-medium hover:bg-emerald-500/30 transition-all text-sm"
+                      className="w-full py-2 rounded-lg bg-electric-blue/20 border border-electric-blue/40 text-electric-blue font-medium hover:bg-electric-blue/30 transition-all text-sm tap-feedback"
                     >
                       Add to Fleet
                     </button>
@@ -281,7 +281,7 @@ async function DashboardContent() {
 
 function DashboardSkeleton() {
   return (
-    <div className="min-h-screen bg-midnight-950 text-white">
+    <div className="min-h-screen bg-tesla-black text-white">
       <div className="max-w-4xl mx-auto p-8 space-y-12">
         {/* Header Skeleton */}
         <div className="space-y-4">

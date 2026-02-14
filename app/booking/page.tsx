@@ -38,7 +38,7 @@ async function BookingContent({ serviceId }: { serviceId?: string }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {services?.map((service) => (
-        <div key={service.id} className="p-8 rounded-3xl bg-zinc-900 border border-zinc-800">
+        <div key={service.id} className="p-8 rounded-3xl glass-card glass-card-hover border-white/10">
           <div className="flex justify-between items-start mb-6">
             <h3 className="text-2xl font-semibold">{service.name}</h3>
             <div className="text-blue-400 font-mono">${service.price / 100}</div>
@@ -54,7 +54,7 @@ async function BookingContent({ serviceId }: { serviceId?: string }) {
               </div>
               <Link
                 href="/dashboard"
-                className="block w-full py-4 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-center font-bold hover:bg-emerald-500/30 transition"
+                className="block w-full py-4 rounded-xl bg-electric-blue/20 border border-electric-blue/40 text-electric-blue text-center font-bold hover:bg-electric-blue/30 transition tap-feedback"
               >
                 Go to My Garage
               </Link>
@@ -69,7 +69,7 @@ async function BookingContent({ serviceId }: { serviceId?: string }) {
               <select
                 name="vehicleId"
                 required
-                className="w-full bg-black border border-zinc-800 rounded-xl p-3 mb-6 focus:border-blue-500 outline-none transition text-white"
+                className="w-full glass-card border-white/10 rounded-xl p-3 mb-6 focus:border-electric-blue/50 outline-none transition text-white"
               >
                 <option value="">Choose a vehicle</option>
                 {vehicles.map((v) => (
@@ -86,12 +86,12 @@ async function BookingContent({ serviceId }: { serviceId?: string }) {
                 type="date" 
                 name="bookingDate"
                 required
-                className="w-full bg-black border border-zinc-800 rounded-xl p-3 mb-6 focus:border-blue-500 outline-none transition text-white color-scheme-dark"
+                className="w-full glass-card border-white/10 rounded-xl p-3 mb-6 focus:border-electric-blue/50 outline-none transition text-white color-scheme-dark"
               />
               
               <button 
                 type="submit" 
-                className="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-zinc-200 transition"
+                className="w-full py-4 rounded-xl bg-electric-blue text-white font-bold hover:bg-[#0060d3] transition shadow-lg shadow-electric-blue/20 tap-feedback"
               >
                 Book Now
               </button>
@@ -107,15 +107,20 @@ export default function BookingPage({ searchParams }: { searchParams: { service?
   const serviceId = searchParams.service;
   
   return (
-    <div className="min-h-screen bg-black text-white p-8 flex flex-col items-center">
+    <div className="min-h-screen bg-tesla-black text-white p-8 flex flex-col items-center page-transition">
       <div className="max-w-4xl w-full space-y-12">
         <header className="text-center">
-          <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-electric-blue to-electric-cyan bg-clip-text text-transparent">
             Book Your Session
           </h1>
           <p className="text-zinc-400 mt-4 text-lg">Select a service to get started.</p>
         </header>
-        <Suspense fallback={<div className="text-zinc-400 text-center py-12">Loading services...</div>}>
+        <Suspense fallback={
+          <div className="text-center py-12">
+            <div className="loading-spinner w-12 h-12 mx-auto mb-4" />
+            <p className="text-zinc-400">Loading services...</p>
+          </div>
+        }>
           <BookingContent serviceId={serviceId} />
         </Suspense>
       </div>

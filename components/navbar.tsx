@@ -30,25 +30,25 @@ export default function Navbar() {
         <div className="flex items-center gap-4 flex-shrink-0">
           <Link 
             href="/explore" 
-            className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+            className="text-sm font-medium text-zinc-400 hover:text-electric-blue transition-colors tap-feedback"
           >
             Explore
           </Link>
           <Link 
             href="/dashboard" 
-            className="text-sm font-medium text-zinc-400 hover:text-white transition-colors"
+            className="text-sm font-medium text-zinc-400 hover:text-electric-blue transition-colors tap-feedback"
           >
             Garage
           </Link>
           <Link 
             href="/assistant" 
-            className="text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="text-sm font-medium text-electric-blue hover:text-electric-cyan transition-colors tap-feedback"
           >
             AI
           </Link>
           <Link 
             href="/membership" 
-            className="text-sm font-medium text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1.5"
+            className="text-sm font-medium text-amber-400 hover:text-amber-300 transition-colors flex items-center gap-1.5 tap-feedback"
           >
             <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />

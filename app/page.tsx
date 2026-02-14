@@ -28,7 +28,7 @@ async function HomeContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             <AnimatedCard delay={0} className="text-left">
               <div className="w-12 h-12 rounded-xl bg-electric-blue/20 flex items-center justify-center mb-4">
-                <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-6 h-6 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
@@ -135,29 +135,29 @@ async function HomeContent() {
   const timeGreeting = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+    <div className="min-h-screen bg-tesla-black text-white relative overflow-hidden page-transition">
       {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-emerald-950/20 via-black to-cyan-950/20" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute inset-0 bg-gradient-to-br from-electric-blue/10 via-tesla-black to-electric-cyan/10" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-electric-blue/5 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-electric-cyan/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
 
       <div className="relative z-10 max-w-7xl mx-auto p-8 space-y-8">
         {/* Mission Control Header */}
         <header className="text-center space-y-4 pt-8">
-          <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-emerald-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-electric-blue via-electric-cyan to-electric-blue bg-clip-text text-transparent">
             {timeGreeting}! {primaryVehicle ? `Your ${primaryVehicle.make} ${primaryVehicle.model} is at ${vehicleHealth}% Health` : 'Welcome to Mission Control'}
           </h1>
           <p className="text-zinc-400 text-lg">Your command center • Live status • Real-time diagnostics</p>
           
           {/* Marketplace Stats Ticker */}
-          <div className="inline-flex items-center gap-4 px-6 py-2 rounded-full bg-zinc-900/50 border border-zinc-800 backdrop-blur-md">
+          <div className="inline-flex items-center gap-4 px-6 py-2 rounded-full glass-card border-white/10">
             <div className="flex items-center gap-2 text-sm">
-              <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></div>
+              <div className="w-2 h-2 rounded-full bg-electric-blue animate-pulse"></div>
               <span className="text-zinc-400">{totalBusinesses || 0} Businesses nearby</span>
             </div>
-            <div className="w-px h-4 bg-zinc-700"></div>
+            <div className="w-px h-4 bg-white/10"></div>
             <div className="flex items-center gap-2 text-sm">
-              <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+              <div className="w-2 h-2 rounded-full bg-electric-cyan animate-pulse" style={{ animationDelay: '0.5s' }}></div>
               <span className="text-zinc-400">{totalServices || 0} Services available today</span>
             </div>
           </div>
@@ -167,7 +167,7 @@ async function HomeContent() {
         {primaryVehicle && vehicleHealth !== null && (
           <Link
             href={`/garage/${primaryVehicle.id}`}
-            className="block rounded-3xl border-2 border-emerald-500/30 bg-gradient-to-br from-zinc-900/80 to-zinc-950/80 backdrop-blur-xl p-8 hover:border-emerald-500/50 transition-all shadow-2xl shadow-emerald-500/10"
+            className="block rounded-3xl glass-card glass-card-hover border-electric-blue/30 p-8 tap-feedback shadow-2xl shadow-electric-blue/10"
           >
             <div className="flex items-center justify-between">
               <div className="flex-1">
@@ -245,10 +245,10 @@ async function HomeContent() {
 
             <Link
               href="/booking"
-              className="group p-6 rounded-2xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-emerald-500/50 transition-all"
+              className="group p-6 rounded-2xl glass-card glass-card-hover border-white/10 tap-feedback"
             >
-              <div className="w-12 h-12 rounded-xl bg-emerald-500/20 group-hover:bg-emerald-500/30 flex items-center justify-center mb-4 transition-colors">
-                <svg className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-12 h-12 rounded-xl bg-electric-blue/20 group-hover:bg-electric-blue/30 flex items-center justify-center mb-4 transition-colors">
+                <svg className="w-6 h-6 text-electric-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                 </svg>
               </div>
@@ -293,7 +293,7 @@ async function HomeContent() {
                 <Link
                   key={business.id}
                   href={`/shop/${business.id}`}
-                  className="flex items-center justify-between p-4 rounded-xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-emerald-500/50 transition-all group"
+                  className="flex items-center justify-between p-4 rounded-xl glass-card glass-card-hover border-white/10 tap-feedback"
                 >
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-cyan-500 flex items-center justify-center">
@@ -302,16 +302,16 @@ async function HomeContent() {
                       </svg>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-white group-hover:text-emerald-400 transition-colors">
-                        {business.name}
-                      </h4>
+                  <h4 className="font-semibold text-white group-hover:text-electric-blue transition-colors">
+                    {business.name}
+                  </h4>
                       <p className="text-sm text-zinc-500 capitalize">
                         {business.category.replace('_', ' ')}
                       </p>
                     </div>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-medium text-emerald-400">{business.distance.toFixed(1)} mi</p>
+                    <p className="text-sm font-medium text-electric-blue">{business.distance.toFixed(1)} mi</p>
                     <p className="text-xs text-zinc-500">~{Math.round(business.distance * 3)} min</p>
                   </div>
                 </Link>
