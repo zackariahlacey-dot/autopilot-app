@@ -11,6 +11,24 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Tesla Midnight Theme - Luxury Automotive Palette
+        tesla: {
+          black: '#050505',   // Deep midnight background
+          card: '#121212',    // Card surface
+          elevated: '#1a1a1a', // Elevated elements
+        },
+        electric: {
+          blue: '#0070f3',    // Tesla Electric Blue (primary)
+          cyan: '#00a8ff',    // Secondary cyan
+          glow: '#0099ff',    // Glow effect
+        },
+        glass: {
+          DEFAULT: 'rgba(255, 255, 255, 0.05)', // Glassmorphism base
+          border: 'rgba(255, 255, 255, 0.1)',   // Glass borders
+          hover: 'rgba(255, 255, 255, 0.08)',   // Glass hover
+          strong: 'rgba(255, 255, 255, 0.1)',   // Stronger glass
+        },
+        // Keep existing shadcn colors for compatibility
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -56,6 +74,40 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        '2xl': '1rem',
+        '3xl': '1.5rem',
+      },
+      backdropBlur: {
+        'xs': '2px',
+        'glass': '12px',
+      },
+      letterSpacing: {
+        'tighter': '-0.05em',
+        'tight': '-0.025em',
+      },
+      animation: {
+        'shimmer': 'shimmer 2s linear infinite',
+        'fade-in': 'fadeIn 0.3s ease-out',
+        'slide-up': 'slideUp 0.3s ease-out',
+        'scale-in': 'scaleIn 0.2s ease-out',
+      },
+      keyframes: {
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        scaleIn: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
       },
     },
   },
